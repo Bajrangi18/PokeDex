@@ -68,13 +68,16 @@ const BookmarkPage = ({navigation,pokemons,setCallData}) => {
     return(
         <View style={{backgroundColor:"#2d3151",justifyContent:'center',alignItems:'center',flex:1,width:"100%"}}>
             <View style={{backgroundColor:'transparent',height:"60%",width:"100%",overflow:'visible'}}>
+            {bookmarks.length==0?<View style={{justifyContent:'center',alignItems:'center',height:"100%"}}>
+                <Text style={{width:"80%",textAlign:'center',fontSize:18,fontWeight:"500",lineHeight:25}}> You have no Bookmarked Pokemons{"\n"}to bookmark a Pokemon press the bookmark icon on top when viewing a pokemon!</Text>
+            </View>:
             <Carousel
               data={bookmarks}
               renderItem={renderItem}
               sliderWidth={400}
               itemWidth={300}
               keyExtractor={(item)=>item.name}
-            />
+            />}
             </View>
         </View>
     )
